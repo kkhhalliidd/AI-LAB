@@ -1,0 +1,27 @@
+import time
+
+def vacuum_cleaner_agent(rooms, location):
+    print("Initial State:", rooms, "| Vacuum at:", location)
+    print("-" * 30)
+
+    while "Dirty" in rooms.values():
+        print(f"Vacuum is at Room {location}.")
+
+        if rooms[location] == "Dirty":
+            print(f"Room {location} is Dirty. -> Cleaning...")
+            rooms[location] = "Clean"
+            print(f"Room {location} is now Clean.")
+        else:
+            next_location = "B" if location == "A" else "A"
+            print(f"Room {location} is Clean. -> Moving to Room {next_location}.")
+            location = next_location
+
+        print("Current State:", rooms, "| Vacuum at:", location)
+        print("-" * 30)
+        time.sleep(1)
+
+    print("Goal State Reached: All rooms are clean.")
+
+if __name__ == "__main__":
+    rooms = {"A": "Dirty", "B": "Dirty"}
+    vacuum_cleaner_agent(rooms, "A")
