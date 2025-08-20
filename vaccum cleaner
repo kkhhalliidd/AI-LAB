@@ -5,15 +5,15 @@ def vacuum_cleaner_agent(rooms, location):
     print("-" * 30)
 
     while "Dirty" in rooms.values():
-        print(f"Vacuum is at Room {location}.")
+        print("Vacuum is at Room {location}.")
 
         if rooms[location] == "Dirty":
-            print(f"Room {location} is Dirty. -> Cleaning...")
+            print("Room {location} is Dirty. -> Cleaning...")
             rooms[location] = "Clean"
-            print(f"Room {location} is now Clean.")
+            print("Room {location} is now Clean.")
         else:
             next_location = "B" if location == "A" else "A"
-            print(f"Room {location} is Clean. -> Moving to Room {next_location}.")
+            print("Room {location} is Clean. -> Moving to Room {next_location}.")
             location = next_location
 
         print("Current State:", rooms, "| Vacuum at:", location)
